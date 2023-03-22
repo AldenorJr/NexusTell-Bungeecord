@@ -1,5 +1,6 @@
 package br.com.nexus.plugin.Command;
 
+import br.com.nexus.plugin.api.VeantyCoreAPI;
 import br.com.nexus.plugin.cache.TellCache;
 import br.com.nexus.plugin.util.SendTell;
 import br.com.nexus.plugin.util.TextComponentUtil;
@@ -27,6 +28,10 @@ public class CommandR extends Command {
         ProxiedPlayer proxiedPlayer = (ProxiedPlayer) commandSender;
         if(args.length == 0) {
             proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§cUse o comando da seguinte forma: /r <mensagem>."));
+            return;
+        }
+        if(new VeantyCoreAPI().isIgnoreServer(proxiedPlayer.getServer().getInfo().getName())) {
+            proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§cVocê precisa se autenticar para executar esse comando."));
             return;
         }
         StringBuilder str = new StringBuilder();
