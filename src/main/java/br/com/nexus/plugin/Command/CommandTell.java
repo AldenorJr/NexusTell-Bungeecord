@@ -78,7 +78,7 @@ public class CommandTell extends Command {
         }
         playerModel.setToggleNotification(changed);
         databaseMethod.updateNotification(proxiedPlayer, changed);
-        proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§aO status do seu amigo agora é: §7"+changed.getTellType()+"§a."));
+        proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§aO status do seu tell agora é: §7"+changed.getTellType()+"§a."));
         return;
     }
 
