@@ -57,7 +57,6 @@ public class DatabaseMethod {
         preparedStatement.setString(1, proxiedPlayer.getName());
         ResultSet rs = preparedStatement.executeQuery();
         rs.next();
-        BungeeCord.getInstance().getConsole().sendMessage(rs.getString("Notification"));
         return new PlayerModel(proxiedPlayer, TellType.valueOf(rs.getString("Notification")));
     }
 
