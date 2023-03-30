@@ -7,6 +7,7 @@ import br.com.nexus.plugin.model.PlayerModel;
 import br.com.nexus.plugin.storage.database.DatabaseMethod;
 import br.com.nexus.plugin.util.SendTell;
 import br.com.nexus.plugin.util.TextComponentUtil;
+import lombok.SneakyThrows;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -70,6 +71,7 @@ public class CommandTell extends Command {
         else proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§cO jogador §7"+args[0]+"§c não foi encontrado."));
     }
 
+    @SneakyThrows
     public void sendToggleTell(ProxiedPlayer proxiedPlayer, TellType changed) {
         PlayerModel playerModel = TellCache.playerPlayerModelHashMap.get(proxiedPlayer);
         if(playerModel.getToggleNotification().equals(changed)) {

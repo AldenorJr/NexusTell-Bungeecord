@@ -8,6 +8,7 @@ import br.com.nexus.plugin.storage.database.DatabaseMethod;
 import br.com.nexus.plugin.util.ConfigurationFile;
 import br.com.nexus.plugin.util.SendTell;
 import br.com.nexus.plugin.util.TextComponentUtil;
+import lombok.SneakyThrows;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.plugin.Plugin;
 
@@ -15,12 +16,12 @@ public class Main extends Plugin {
 
     private String prefix = "§5[NexusTell] ";
     private final HikariConnect hikariConnect = new HikariConnect();
-    private final DatabaseMethod databaseMethod = new DatabaseMethod(hikariConnect);
     private final TextComponentUtil textComponentUtil = new TextComponentUtil();
     private final SendTell sendTell = new SendTell(textComponentUtil);
     private final ConfigurationFile configurationFile = new ConfigurationFile(this);
+    private final DatabaseMethod databaseMethod = new DatabaseMethod(hikariConnect);
 
-    @Override
+    @Override @SneakyThrows
     public void onEnable() {
         BungeeCord.getInstance().getConsole().sendMessage(textComponentUtil.createTextComponent(prefix + "§aPlugin iniciado"));
         BungeeCord.getInstance().getConsole().sendMessage(textComponentUtil.createTextComponent(prefix + "§aConfiguraçãos carregadas."));
