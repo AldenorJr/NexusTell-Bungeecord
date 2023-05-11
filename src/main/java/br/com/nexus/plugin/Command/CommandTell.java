@@ -1,7 +1,7 @@
 package br.com.nexus.plugin.Command;
 
 import br.com.nexus.plugin.Enum.TellType;
-import br.com.nexus.plugin.api.VeantyCoreAPI;
+import br.com.nexus.plugin.api.NexusCoreAPI;
 import br.com.nexus.plugin.cache.TellCache;
 import br.com.nexus.plugin.model.PlayerModel;
 import br.com.nexus.plugin.storage.database.DatabaseMethod;
@@ -36,7 +36,7 @@ public class CommandTell extends Command {
             sendDefaultMessage(proxiedPlayer);
             return;
         }
-        if(new VeantyCoreAPI().isIgnoreServer(proxiedPlayer.getServer().getInfo().getName())) {
+        if(new NexusCoreAPI().isIgnoreServer(proxiedPlayer.getServer().getInfo().getName())) {
             proxiedPlayer.sendMessage(textComponentUtil.createTextComponent("§cVocê precisa se autenticar para executar esse comando."));
             return;
         }
