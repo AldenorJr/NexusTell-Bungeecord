@@ -3,7 +3,7 @@ version: 2.0.0
 main: br.com.nexus.plugin.Main
 author: Nexus
 depends:
-  - VeantyCore
+  - NexusCore
   - NexusAmigos
 commands:
   tell:
